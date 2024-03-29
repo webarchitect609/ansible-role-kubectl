@@ -1,0 +1,4 @@
+---
+kubectl_package: kubectl
+kubectl_deb_source: "deb [arch=amd64] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /"
+kubectl_gpg_key_url: "https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key"

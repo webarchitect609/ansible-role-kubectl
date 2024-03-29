@@ -1,0 +1,34 @@
+---
+- name: "Fix 'configured multiple times'"
+  ansible.builtin.file:
+    path: "/etc/apt/sources.list.d/pkgs_k8s_io_core__stable__v1_29_deb.list"
+    state: absent
+
+- name: "Refresh apt sources list"
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: "Ensure GPG tools are installed"
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - "gpgv"
+      - "gnupg"
+
+- name: "Add GPG key"
+  ansible.builtin.apt_key:
+    url: "{{ kubectl_gpg_key_url }}"
+
+- name: "Add repository"
+  ansible.builtin.apt_repository:
+    repo: "{{ kubectl_deb_source }}"
+    filename: "kubernetes"
+    state: present
+
+- name: "Install kubectl"
+  ansible.builtin.apt:
+    name: "{{ kubectl_package }}"
+    state: present

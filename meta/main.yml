@@ -1,0 +1,23 @@
+---
+dependencies: [ ]
+galaxy_info:
+  namespace: webarchitect609
+  role_name: kubectl
+  author: Gripinskiy Sergey
+  description: Installs kubectl from the official apt repo.
+  company: ''
+  license: BSD-3-Clause
+  min_ansible_version: '2.1'
+  platforms:
+    - name: Ubuntu
+      versions:
+        # 22.04 LTS
+        - jammy
+        # 20.04 LTS
+        - focal
+        # 18.04 LTS
+        - bionic
+
+  galaxy_tags:
+    - kubectl
+    - k8s
