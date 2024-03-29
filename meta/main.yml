@@ -1,5 +1,5 @@
 ---
-dependencies: [ ]
+dependencies: []
 galaxy_info:
   namespace: webarchitect609
   role_name: kubectl
